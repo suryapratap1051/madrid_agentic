@@ -3,2471 +3,1513 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Agentic Course - Complete Syllabus | 7-Month AI Automation Mastery</title>
+    <title>AI Agentic Development with n8n Automation Course</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&family=Montserrat:wght@300;400;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* Reuse all existing CSS styles from the original code */
         :root {
-            --primary: #00f3ff;
-            --secondary: #0066ff;
-            --accent: #ff00ff;
-            --dark: #0a0a1a;
-            --darker: #050510;
-            --light: #f0ffff;
-            --success: #00ffaa;
-            --warning: #ffcc00;
-            --info: #0099ff;
-            --neon-glow: 0 0 20px rgba(0, 243, 255, 0.7);
-            --neon-glow-accent: 0 0 20px rgba(255, 0, 255, 0.7);
-            --neon-glow-success: 0 0 20px rgba(0, 255, 170, 0.7);
-            --card-bg: rgba(16, 20, 40, 0.9);
-            --sidebar-width: 280px;
+            --primary: #6c5ce7;
+            --primary-dark: #5b4fcf;
+            --secondary: #00cec9;
+            --accent: #fd79a8;
+            --accent2: #a29bfe;
+            --accent3: #00b894;
+            --dark: #2d3436;
+            --light: #f9f9f9;
+            --gradient1: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            --gradient2: linear-gradient(135deg, #00cec9 0%, #81ecec 100%);
+            --gradient3: linear-gradient(135deg, #fd79a8 0%, #fab1a0 100%);
+            --gradient4: linear-gradient(135deg, #00b894 0%, #55efc4 100%);
+            --shadow: 0 10px 30px rgba(108, 92, 231, 0.2);
+            --shadow-hover: 0 15px 40px rgba(108, 92, 231, 0.3);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--darker);
-            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7ff;
+            color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
-        /* Cyber Grid Background */
-        .cyber-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
+
+        .container {
             width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -3;
-            animation: gridMove 30s linear infinite;
-        }
-        
-        .particles-container {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-        }
-        
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, var(--primary), transparent);
-            border-radius: 50%;
-            animation: floatParticle 20s infinite linear;
-        }
-        
-        /* Header */
-        .cyber-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 0;
-            z-index: 1000;
-            background: rgba(5, 5, 16, 0.95);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
-            box-shadow: var(--neon-glow);
-            transition: all 0.3s ease;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1600px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 30px;
-        }
-        
-        .cyber-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-        }
-        
-        .logo-cyber {
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            animation: rotate 20s linear infinite;
-            box-shadow: var(--neon-glow);
-            position: relative;
-        }
-        
-        .logo-cyber:before {
-            content: '';
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 2px solid var(--primary);
-            animation: pulseRing 2s infinite;
-        }
-        
-        .logo-text-cyber {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            font-size: 32px;
-            background: linear-gradient(45deg, var(--primary), var(--accent), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
-            letter-spacing: 1.5px;
-        }
-        
-        .nav-cyber {
-            display: flex;
-            gap: 35px;
-            list-style: none;
-        }
-        
-        .nav-cyber a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            padding: 12px 25px;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            font-family: 'Rajdhani', sans-serif;
-            letter-spacing: 1px;
-        }
-        
-        .nav-cyber a:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.2), transparent);
-            transition: left 0.7s;
-        }
-        
-        .nav-cyber a:hover:before {
-            left: 100%;
-        }
-        
-        .nav-cyber a:hover {
-            background: rgba(0, 243, 255, 0.1);
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
-            transform: translateY(-3px);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 30px;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        
-        /* Main Layout */
-        .main-container {
-            display: flex;
-            min-height: 100vh;
-            padding-top: 100px;
-        }
-        
-        /* Sidebar Navigation */
-        .syllabus-sidebar {
-            width: var(--sidebar-width);
-            background: rgba(10, 10, 25, 0.9);
-            border-right: 1px solid rgba(0, 243, 255, 0.2);
-            padding: 30px 20px;
-            position: fixed;
-            top: 100px;
-            left: 0;
-            bottom: 0;
-            overflow-y: auto;
-            backdrop-filter: blur(10px);
-            z-index: 900;
-        }
-        
-        .syllabus-sidebar h3 {
-            color: var(--primary);
-            font-family: 'Orbitron', sans-serif;
-            margin-bottom: 30px;
-            font-size: 1.5rem;
-            text-align: center;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(0, 243, 255, 0.3);
-        }
-        
-        .module-list {
-            list-style: none;
-        }
-        
-        .module-item {
-            padding: 15px 20px;
-            margin-bottom: 10px;
-            background: rgba(16, 20, 40, 0.5);
-            border-radius: 10px;
-            border-left: 4px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .module-item:hover {
-            background: rgba(0, 243, 255, 0.1);
-            transform: translateX(5px);
-        }
-        
-        .module-item.active {
-            background: rgba(0, 243, 255, 0.2);
-            border-left: 4px solid var(--accent);
-            box-shadow: var(--neon-glow);
-        }
-        
-        .module-item .module-title {
-            font-weight: 600;
-            color: var(--light);
-            margin-bottom: 5px;
-            font-family: 'Rajdhani', sans-serif;
-        }
-        
-        .module-item .module-duration {
-            font-size: 12px;
-            color: #a0c8ff;
-        }
-        
-        /* Main Content */
-        .content-wrapper {
-            flex: 1;
-            margin-left: var(--sidebar-width);
-            padding: 40px;
-            max-width: calc(100% - var(--sidebar-width));
-        }
-        
-        /* Hero Section */
-        .cyber-hero {
-            text-align: center;
-            padding: 60px 0 40px;
-            position: relative;
-        }
-        
-        .hero-badge-cyber {
-            display: inline-block;
-            background: rgba(0, 243, 255, 0.1);
-            border: 2px solid rgba(0, 243, 255, 0.3);
-            color: var(--primary);
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-weight: 700;
-            margin-bottom: 40px;
-            box-shadow: var(--neon-glow);
-            animation: glow 2s infinite alternate;
-            font-family: 'Rajdhani', sans-serif;
-            letter-spacing: 2px;
-            font-size: 14px;
-        }
-        
-        .hero-title-cyber {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            margin-bottom: 30px;
-            background: linear-gradient(45deg, var(--primary), var(--accent), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: gradientShift 5s infinite alternate;
-            line-height: 1.1;
-            text-shadow: 0 0 40px rgba(0, 243, 255, 0.5);
-        }
-        
-        .hero-subtitle {
-            font-size: 1.4rem;
-            max-width: 900px;
-            margin: 0 auto 60px;
-            color: #c5e8ff;
-            font-weight: 300;
-            line-height: 1.8;
-        }
-        
-        /* Module Content */
-        .module-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .module-content.active {
-            display: block;
-        }
-        
-        .module-header {
-            background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(255, 0, 255, 0.1));
-            border-radius: 25px;
-            padding: 40px;
-            margin-bottom: 50px;
-            border: 1px solid rgba(0, 243, 255, 0.2);
-            box-shadow: var(--neon-glow);
-        }
-        
-        .module-header h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--light);
-        }
-        
-        .module-meta {
-            display: flex;
-            gap: 30px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
-        
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(0, 243, 255, 0.1);
-            padding: 10px 20px;
-            border-radius: 20px;
-        }
-        
-        .meta-item i {
-            color: var(--primary);
-        }
-        
-        /* Syllabus Grid */
-        .syllabus-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        
-        .syllabus-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid rgba(0, 243, 255, 0.2);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-        
-        .syllabus-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--neon-glow);
-            border-color: var(--primary);
-        }
-        
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(0, 243, 255, 0.2);
-        }
-        
-        .card-title {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1.5rem;
-            color: var(--light);
-        }
-        
-        .card-duration {
-            background: rgba(0, 243, 255, 0.1);
-            color: var(--primary);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        
-        .topics-list {
-            list-style: none;
-        }
-        
-        .topic-item {
-            padding: 12px 15px;
-            margin-bottom: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            border-left: 4px solid var(--primary);
-            transition: all 0.3s ease;
-        }
-        
-        .topic-item:hover {
-            background: rgba(0, 243, 255, 0.1);
-            transform: translateX(5px);
-        }
-        
-        .topic-item i {
-            color: var(--accent);
-            margin-right: 10px;
-        }
-        
-        /* Resources Section */
-        .resources-section {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 25px;
-            padding: 40px;
-            margin: 60px 0;
-        }
-        
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .resource-item {
-            background: rgba(16, 20, 40, 0.7);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            border: 1px solid rgba(0, 243, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .resource-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--neon-glow);
-            border-color: var(--primary);
-        }
-        
-        .resource-icon {
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        /* Learning Outcomes */
-        .outcomes-section {
-            background: linear-gradient(135deg, rgba(0, 255, 170, 0.1), rgba(0, 243, 255, 0.1));
-            border-radius: 25px;
-            padding: 40px;
-            margin: 60px 0;
-        }
-        
-        .outcomes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .outcome-item {
-            background: rgba(16, 20, 40, 0.8);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid rgba(0, 255, 170, 0.2);
-        }
-        
-        .outcome-item:hover {
-            border-color: var(--success);
-            box-shadow: var(--neon-glow-success);
-        }
-        
-        /* Projects Showcase */
-        .projects-section {
-            margin: 60px 0;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 243, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--neon-glow);
-            border-color: var(--primary);
-        }
-        
-        .project-image {
-            height: 180px;
-            background: linear-gradient(45deg, rgba(0, 243, 255, 0.1), rgba(255, 0, 255, 0.1));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px;
-            color: var(--primary);
-        }
-        
-        .project-info {
-            padding: 25px;
-        }
-        
-        .tech-tags {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .tech-tag {
-            background: rgba(0, 243, 255, 0.1);
-            color: var(--primary);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        
-        /* Career Path */
-        .career-section {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 25px;
-            padding: 40px;
-            margin: 60px 0;
-        }
-        
-        .career-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .career-card {
-            background: rgba(16, 20, 40, 0.7);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            border: 1px solid rgba(0, 243, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .career-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--neon-glow);
-            border-color: var(--primary);
-        }
-        
-        .salary-badge {
-            background: rgba(0, 255, 170, 0.1);
-            color: var(--success);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 15px;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            text-align: center;
-            padding: 80px 40px;
-            background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(255, 0, 255, 0.1));
-            border-radius: 25px;
-            margin: 60px 0;
-            border: 1px solid rgba(0, 243, 255, 0.2);
-            box-shadow: var(--neon-glow);
-        }
-        
-        .cta-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 30px;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: gradientShift 5s infinite alternate;
-        }
-        
-        .cyber-button {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--gradient1);
             color: white;
-            padding: 20px 45px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 20px;
-            letter-spacing: 1.5px;
-            transition: all 0.3s ease;
-            box-shadow: var(--neon-glow);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            font-family: 'Rajdhani', sans-serif;
-            margin-top: 40px;
-        }
-        
-        .cyber-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 0 40px rgba(0, 243, 255, 0.8);
-        }
-        
-        /* Progress Tracker */
-        .progress-tracker {
-            position: fixed;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(16, 20, 40, 0.9);
-            border: 2px solid var(--primary);
-            border-radius: 20px;
-            padding: 25px;
-            z-index: 999;
-            box-shadow: var(--neon-glow);
-            min-width: 180px;
+            padding: 30px 0 50px;
             text-align: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-        
-        .progress-tracker:hover {
-            transform: translateY(-50%) scale(1.05);
-            box-shadow: 0 0 30px rgba(0, 243, 255, 0.8);
-        }
-        
-        .progress-items {
-            margin-bottom: 25px;
-        }
-        
-        .progress-item {
-            margin-bottom: 12px;
-            padding: 12px 15px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-            cursor: pointer;
             position: relative;
-            font-size: 14px;
-        }
-        
-        .progress-item:hover {
-            background: rgba(0, 243, 255, 0.2);
-            transform: translateX(-5px);
-        }
-        
-        .progress-item.active {
-            background: rgba(0, 243, 255, 0.3);
-            border-left: 4px solid var(--accent);
-        }
-        
-        .progress-item.completed:before {
-            content: '✓';
-            position: absolute;
-            left: -25px;
-            color: var(--success);
-            font-weight: bold;
-        }
-        
-        .progress-bar {
-            height: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            margin-top: 15px;
             overflow: hidden;
         }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            width: 0%;
-            transition: width 1s ease;
-            border-radius: 5px;
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            animation: float 20s linear infinite;
         }
-        
-        /* Animations */
-        @keyframes floatParticle {
-            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
-        }
-        
-        @keyframes gridMove {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(50px); }
-        }
-        
-        @keyframes rotate {
+
+        @keyframes float {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
         }
-        
-        @keyframes glow {
-            0% { box-shadow: 0 0 10px rgba(0, 243, 255, 0.5); }
-            100% { box-shadow: 0 0 25px rgba(0, 243, 255, 0.8), 0 0 40px rgba(0, 243, 255, 0.6); }
+
+        .logo-img {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
         }
-        
-        @keyframes pulseRing {
-            0% { transform: scale(0.8); opacity: 0.8; }
-            100% { transform: scale(1.2); opacity: 0; }
+
+        .logo-img:hover {
+            transform: scale(1.05) rotate(2deg);
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        .company-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            margin-top: 5px;
         }
-        
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .course-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-item i {
+            margin-right: 8px;
+            color: var(--secondary);
+        }
+
+        /* Main Content */
+        main {
+            padding: 60px 0;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient1);
+            border-radius: 2px;
+        }
+
+        .outcome-grid, .cert-grid, .capstone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .outcome-item, .cert-item, .capstone-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            border-left: 5px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .outcome-item:hover, .cert-item:hover, .capstone-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-left-color: var(--accent);
+        }
+
+        .outcome-item::before, .cert-item::before, .capstone-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient1);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .outcome-item:hover::before, .cert-item:hover::before, .capstone-item:hover::before {
+            opacity: 0.05;
+        }
+
+        .outcome-item > *, .cert-item > *, .capstone-item > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Month Sections */
+        .month-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+        }
+
+        .month-section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .month-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .month-title {
+            font-size: 1.8rem;
+            background: var(--gradient1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .weeks-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .week-card {
+            background: #f9f9ff;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(108, 92, 231, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .week-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.15);
+            border-color: rgba(108, 92, 231, 0.3);
+        }
+
+        .week-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient2);
+            border-radius: 0 12px 0 60px;
+            opacity: 0.1;
+            transition: all 0.4s ease;
+        }
+
+        .week-card:hover::after {
+            width: 80px;
+            height: 80px;
+            opacity: 0.2;
+        }
+
+        .week-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .week-content ul {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        .week-content li {
+            padding: 5px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .week-content li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .hands-on {
+            background: rgba(0, 206, 201, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+            margin-top: 15px;
+        }
+
+        .hands-on strong {
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .n8n-highlight {
+            background: rgba(0, 184, 148, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent3);
+            margin-top: 15px;
+        }
+
+        .n8n-highlight strong {
+            color: var(--accent3);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .ai-highlight {
+            background: rgba(108, 92, 231, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            margin-top: 15px;
+        }
+
+        .ai-highlight strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            background: var(--gradient3);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(253, 121, 168, 0.4);
+            animation: floatUp 3s ease-in-out infinite;
+        }
+
+        .n8n-badge {
+            display: inline-block;
+            background: var(--gradient4);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
+            animation: floatUp 3s ease-in-out infinite;
+        }
+
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         /* Responsive Design */
-        @media (max-width: 1200px) {
-            .hero-title-cyber {
-                font-size: 3rem;
-            }
-            
-            .cta-title {
-                font-size: 2.5rem;
-            }
-            
-            .progress-tracker {
-                display: none;
-            }
-            
-            .syllabus-sidebar {
-                width: 250px;
-            }
-            
-            .content-wrapper {
-                margin-left: 250px;
-                max-width: calc(100% - 250px);
-            }
-        }
-        
         @media (max-width: 992px) {
-            .nav-cyber {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: rgba(5, 5, 16, 0.95);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 40px;
-                backdrop-filter: blur(20px);
+            h1 {
+                font-size: 2.2rem;
             }
             
-            .nav-cyber.active {
-                display: flex;
+            h2 {
+                font-size: 1.9rem;
             }
             
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .syllabus-sidebar {
-                width: 220px;
-            }
-            
-            .content-wrapper {
-                margin-left: 220px;
-                max-width: calc(100% - 220px);
+            .month-section {
                 padding: 30px;
             }
             
-            .hero-title-cyber {
-                font-size: 2.5rem;
+            .weeks-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
             
-            .module-header h2 {
-                font-size: 2rem;
+            .logo-img {
+                max-width: 180px;
             }
         }
-        
+
         @media (max-width: 768px) {
-            .main-container {
-                flex-direction: column;
+            .logo-img {
+                max-width: 150px;
             }
             
-            .syllabus-sidebar {
-                position: static;
-                width: 100%;
-                height: auto;
-                max-height: 300px;
-                overflow-y: auto;
-                border-right: none;
-                border-bottom: 1px solid rgba(0, 243, 255, 0.2);
-            }
-            
-            .content-wrapper {
-                margin-left: 0;
-                max-width: 100%;
-                padding: 20px;
-            }
-            
-            .hero-title-cyber {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .cta-title {
-                font-size: 2rem;
-            }
-            
-            .syllabus-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .module-header {
-                padding: 30px 20px;
-            }
-            
-            .module-meta {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .cyber-button {
-                padding: 15px 30px;
-                font-size: 18px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .header-container {
-                padding: 0 20px;
-            }
-            
-            .hero-title-cyber {
-                font-size: 1.8rem;
-            }
-            
-            .module-header h2 {
-                font-size: 1.8rem;
-            }
-            
-            .card-title {
-                font-size: 1.3rem;
-            }
-            
-            .resources-grid,
-            .outcomes-grid,
-            .projects-grid,
-            .career-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-section {
-                padding: 40px 20px;
-            }
-            
-            .cyber-button {
-                width: 100%;
-                text-align: center;
-            }
-        }
-        
-        @media (max-width: 400px) {
-            .hero-title-cyber {
+            .company-name {
                 font-size: 1.5rem;
             }
             
-            .hero-badge-cyber {
-                font-size: 12px;
-                padding: 10px 20px;
+            h1 {
+                font-size: 1.9rem;
             }
             
-            .module-header {
-                padding: 20px 15px;
+            .tagline {
+                font-size: 1.1rem;
             }
             
-            .syllabus-card {
-                padding: 20px 15px;
+            .info-item {
+                width: 100%;
+                text-align: center;
             }
+            
+            .month-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .month-title {
+                margin-bottom: 15px;
+            }
+            
+            .outcome-grid, .cert-grid, .capstone-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            header {
+                padding: 20px 0 40px;
+            }
+            
+            main {
+                padding: 40px 0;
+            }
+            
+            section {
+                margin-bottom: 60px;
+            }
+            
+            .month-section {
+                padding: 20px;
+            }
+            
+            .week-card {
+                padding: 20px;
+            }
+            
+            .logo-img {
+                max-width: 130px;
+            }
+            
+            .company-name {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Colorful text effects */
+        .colorful-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+            100% { background-position: 0% center; }
         }
     </style>
 </head>
 <body>
-    <!-- Background Elements -->
-    <div class="cyber-grid"></div>
-    <div class="particles-container" id="particles"></div>
-    
-    <!-- Header -->
-    <header class="cyber-header" id="header">
-        <div class="header-container">
-            <a href="#" class="cyber-logo">
-                <div class="logo-cyber">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div>
-                    <div class="logo-text-cyber">AI AGENTIC</div>
-                    <div class="logo-tagline">AUTOMATION MASTERY</div>
-                </div>
-            </a>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="Madrid logo Final V1.png" alt="AI Agentic Development Course Logo" class="logo-img">
+                <div class="company-name">Madrid Software</div>
+            </div>
+            <h1>AI Agentic Development with n8n Automation</h1>
+            <p class="tagline">Master AI Agents, Automation, and Enterprise AI Solutions</p>
             
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <ul class="nav-cyber" id="navLinks">
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#syllabus">Syllabus</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#career">Career</a></li>
-                <li><a href="#cta" class="cyber-button">Enroll Now</a></li>
-            </ul>
+            <div class="course-info">
+                <div class="info-item"><i class="fas fa-clock"></i> Duration: 7 Months (28 Weeks)</div>
+                <div class="info-item"><i class="fas fa-chart-line"></i> Level: Zero → Advanced</div>
+                <div class="info-item"><i class="fas fa-project-diagram"></i> Mode: Hands-On Project Based</div>
+            </div>
+            <div class="info-item" style="margin-top: 10px; width: 100%; max-width: 800px;">
+                <i class="fas fa-code"></i> Tech Stack: Python • NumPy • Pandas • Scikit-learn • TensorFlow/PyTorch • Hugging Face • LangChain • LangGraph • n8n • Open-Source LLMs • FastAPI • Streamlit • Docker • Git
+            </div>
         </div>
     </header>
 
-    <!-- Progress Tracker -->
-    <div class="progress-tracker" id="progressTracker">
-        <h3><i class="fas fa-tasks"></i> Progress</h3>
-        <div class="progress-items" id="progressItems">
-            <!-- Progress items will be dynamically added -->
-        </div>
-        <div class="progress-bar-container">
-            <div>Completion: <span id="progressPercent">0%</span></div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
+    <main class="container">
+        <!-- Course Outcome -->
+        <section class="fade-in">
+            <h2 class="colorful-text">🎯 Course Outcome</h2>
+            <p>By the end of this comprehensive 7-month course, learners will be able to:</p>
+            <div class="outcome-grid">
+                <div class="outcome-item">Build AI Agents from scratch</div>
+                <div class="outcome-item">Automate workflows with n8n</div>
+                <div class="outcome-item">Design RAG (Retrieval-Augmented Generation) systems</div>
+                <div class="outcome-item">Deploy production AI products</div>
+                <div class="outcome-item">Implement Machine Learning & Deep Learning models</div>
+                <div class="outcome-item">Create multi-agent AI systems</div>
+                <div class="outcome-item">Build enterprise automation solutions</div>
+                <div class="outcome-item">Work as AI Engineer / Agentic AI Developer</div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Main Content -->
-    <div class="main-container">
-        <!-- Sidebar Navigation -->
-        <nav class="syllabus-sidebar" id="syllabusSidebar">
-            <h3><i class="fas fa-book-open"></i> Course Modules</h3>
-            <ul class="module-list" id="moduleList">
-                <!-- Modules will be dynamically added -->
-            </ul>
-        </nav>
+        <!-- Month 1 -->
+        <section class="month-section fade-in">
+            <div class="month-header">
+                <h3 class="month-title">📅 MONTH 1: Python Foundations & AI Basics</h3>
+                <div class="ai-highlight" style="width: 100%; margin-top: 10px;">
+                    <strong>Goal:</strong> Build strong Python + AI fundamentals (ZERO → STRONG)
+                </div>
+            </div>
+            
+            <div class="weeks-container">
+                <!-- Week 1 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 1 – Python Programming Basics</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 1: Python Introduction</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>What is Python?</li>
+                                    <li>Why Python for AI & Automation?</li>
+                                    <li>Installing Python & IDE (VS Code / PyCharm)</li>
+                                    <li>Running first Python program</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 2: Python Syntax & Variables</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Python syntax rules</li>
+                                    <li>Variables & naming conventions</li>
+                                    <li>Data types: int, float, string, boolean</li>
+                                    <li>Type conversion</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 3: Operators</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Arithmetic operators</li>
+                                    <li>Relational operators</li>
+                                    <li>Logical operators</li>
+                                    <li>Bitwise operators</li>
+                                    <li>Assignment operators</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Practice Projects:</strong>
+                            <p>✔ Calculator program</p>
+                            <p>✔ Even/Odd checker</p>
+                            <p>✔ Simple interest calculator</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Week 2 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 2 – Data Structures & Control Flow</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 4: Python Data Structures</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Lists (append, remove, slicing)</li>
+                                    <li>Tuples (immutability)</li>
+                                    <li>Sets (unique values)</li>
+                                    <li>Dictionaries (key-value pairs)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 5: Conditional Statements</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>if, else</li>
+                                    <li>elif</li>
+                                    <li>Nested conditions</li>
+                                    <li>Logical conditions</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 6: Loops</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>for loop</li>
+                                    <li>while loop</li>
+                                    <li>break, continue, pass</li>
+                                    <li>Nested loops</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Practice Projects:</strong>
+                            <p>✔ Student marks system</p>
+                            <p>✔ Menu-driven program</p>
+                            <p>✔ Pattern printing</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Week 3 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 3 – Functions & File Handling</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 7: Functions</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Function definition</li>
+                                    <li>Parameters & return values</li>
+                                    <li>Lambda functions</li>
+                                    <li>Scope (local/global)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 8: Modules & Packages</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Importing modules</li>
+                                    <li>Creating custom modules</li>
+                                    <li>Using external libraries</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 9: File Handling</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Reading/Writing TXT files</li>
+                                    <li>CSV handling</li>
+                                    <li>JSON handling</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 10: Exception Handling</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>try-except</li>
+                                    <li>finally</li>
+                                    <li>Custom exceptions</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Mini Project:</strong>
+                            <p>📌 File-based student management system</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Week 4 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 4 – Python Libraries + AI Intro</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 11: NumPy</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Arrays</li>
+                                    <li>Indexing & slicing</li>
+                                    <li>Vector operations</li>
+                                    <li>Broadcasting</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 12: Pandas</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>DataFrames & Series</li>
+                                    <li>Data cleaning</li>
+                                    <li>Handling missing values</li>
+                                    <li>groupby operations</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 13: Data Visualization</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Matplotlib (line, bar, histogram)</li>
+                                    <li>Seaborn (heatmaps, correlations)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 14: AI Fundamentals</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>AI vs ML vs DL vs LLMs</li>
+                                    <li>What is Agentic AI?</li>
+                                    <li>Where AI Agents are used</li>
+                                    <li>Intro to LangChain, LangGraph, Hugging Face</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Mini Projects:</strong>
+                            <p>📌 Sales data analysis</p>
+                            <p>📌 Rule-based chatbot</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Main Content Area -->
-        <div class="content-wrapper" id="contentWrapper">
-            <!-- Module 1 Content -->
-            <div class="module-content active" id="module1">
-                <div class="cyber-hero">
-                    <div class="hero-badge-cyber">🚀 MODULE 1 - FOUNDATIONS</div>
-                    <h1 class="hero-title-cyber">Python Programming & AI Fundamentals</h1>
-                    <p class="hero-subtitle">Build a solid foundation in Python programming and understand the core concepts of Artificial Intelligence and automation.</p>
-                </div>
-                
-                <div class="module-header">
-                    <h2>Month 1: Python Mastery & AI Basics</h2>
-                    <p style="color: #c5e8ff; font-size: 1.2rem; margin-bottom: 20px;">Start from zero and build strong programming foundations with Python, data structures, and AI fundamentals.</p>
-                    <div class="module-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>4 Weeks</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-book"></i>
-                            <span>16 Lessons</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-project-diagram"></i>
-                            <span>4 Projects</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Beginner Level</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="syllabus-grid">
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 1: Python Basics</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-code"></i>
-                                <span>Python Installation & IDE Setup</span>
+        <!-- Month 2 -->
+        <section class="month-section fade-in">
+            <div class="month-header">
+                <h3 class="month-title">📅 MONTH 2: Machine Learning Foundations</h3>
+            </div>
+            
+            <div class="weeks-container">
+                <!-- Week 5 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 5 – Data Preprocessing</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 15: Data Cleaning</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Missing value handling</li>
+                                    <li>Outlier detection</li>
+                                    <li>Data normalization</li>
+                                </ul>
                             </li>
-                            <li class="topic-item">
-                                <i class="fas fa-code"></i>
-                                <span>Variables, Data Types, Operators</span>
+                            <li><strong>Step 16: Feature Engineering</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Label Encoding</li>
+                                    <li>One-Hot Encoding</li>
+                                    <li>Scaling (StandardScaler, MinMaxScaler)</li>
+                                </ul>
                             </li>
-                            <li class="topic-item">
-                                <i class="fas fa-code"></i>
-                                <span>Control Flow: Conditionals & Loops</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-code"></i>
-                                <span>Functions & Basic I/O Operations</span>
+                            <li><strong>Step 17: Data Splitting</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Train-test split</li>
+                                    <li>Cross-validation</li>
+                                </ul>
                             </li>
                         </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 2: Data Structures</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-code"></i>
-                                <span>Lists, Tuples, Sets, Dictionaries</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-code"></i>
-                                <span>List Comprehensions & Slicing</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-code"></i>
-                                <span>Advanced Functions & Lambda</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-code"></i>
-                                <span>File Handling & Error Handling</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 3: Python Libraries</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-code"></i>
-                                <span>NumPy: Arrays & Mathematical Operations</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-code"></i>
-                                <span>Pandas: DataFrames & Data Analysis</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-code"></i>
-                                <span>Matplotlib & Seaborn: Data Visualization</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-code"></i>
-                                <span>Basic Data Cleaning & Preprocessing</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 4: AI Fundamentals</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-brain"></i>
-                                <span>Introduction to AI, ML, DL, LLMs</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-brain"></i>
-                                <span>What is Agentic AI? Applications</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-brain"></i>
-                                <span>AI Development Workflow</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-brain"></i>
-                                <span>Setting up AI Development Environment</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="resources-section">
-                    <h2 style="color: var(--primary); margin-bottom: 30px; font-family: 'Orbitron', sans-serif;">
-                        <i class="fas fa-tools"></i> Learning Resources
-                    </h2>
-                    <div class="resources-grid">
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <h3>Course Materials</h3>
-                            <p style="color: #c5e8ff; margin: 15px 0;">Complete Python cheat sheets, AI fundamentals guide, and coding exercises.</p>
-                        </div>
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h3>Code Repository</h3>
-                            <p style="color: #c5e8ff; margin: 15px 0;">GitHub repo with all code examples, projects, and solutions.</p>
-                        </div>
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-video"></i>
-                            </div>
-                            <h3>Video Tutorials</h3>
-                            <p style="color: #c5e8ff; margin: 15px 0;">Step-by-step video tutorials for all concepts and projects.</p>
-                        </div>
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-question-circle"></i>
-                            </div>
-                            <h3>Q&A Support</h3>
-                            <p style="color: #c5e8ff; margin: 15px 0;">24/7 access to instructors and community for questions.</p>
+                        <div class="hands-on">
+                            <strong>Hands-On:</strong>
+                            <p>✔ Complete data preprocessing pipeline</p>
+                            <p>✔ Feature engineering on real dataset</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="outcomes-section">
-                    <h2 style="color: var(--success); margin-bottom: 30px; font-family: 'Orbitron', sans-serif;">
-                        <i class="fas fa-check-circle"></i> Learning Outcomes
-                    </h2>
-                    <div class="outcomes-grid">
-                        <div class="outcome-item">
-                            <h3 style="color: var(--light); margin-bottom: 15px;">Python Proficiency</h3>
-                            <p style="color: #c5e8ff;">Master Python programming from basics to advanced data manipulation with NumPy and Pandas.</p>
+                <!-- Week 6 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 6 – Supervised Learning</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 18: Regression Models</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Linear regression</li>
+                                    <li>Multiple regression</li>
+                                    <li>Model assumptions</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 19: Classification Models</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Logistic regression</li>
+                                    <li>Decision Trees</li>
+                                    <li>Random Forest</li>
+                                    <li>SVM</li>
+                                    <li>Naïve Bayes</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Practice Projects:</strong>
+                            <p>📌 Salary prediction system</p>
+                            <p>📌 Loan approval prediction system</p>
                         </div>
-                        <div class="outcome-item">
-                            <h3 style="color: var(--light); margin-bottom: 15px;">AI Understanding</h3>
-                            <p style="color: #c5e8ff;">Understand core AI concepts and the difference between AI, ML, DL, and LLMs.</p>
+                    </div>
+                </div>
+                
+                <!-- Week 7 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 7 – Unsupervised Learning</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 20: Clustering</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>K-Means</li>
+                                    <li>Hierarchical clustering</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 21: Dimensionality Reduction</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>PCA (Principal Component Analysis)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 22: Anomaly Detection</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Outlier detection techniques</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Project:</strong>
+                            <p>📌 Customer segmentation system</p>
                         </div>
-                        <div class="outcome-item">
-                            <h3 style="color: var(--light); margin-bottom: 15px;">Project Building</h3>
-                            <p style="color: #c5e8ff;">Build 4 real Python projects including data analysis and visualization applications.</p>
-                        </div>
-                        <div class="outcome-item">
-                            <h3 style="color: var(--light); margin-bottom: 15px;">Environment Setup</h3>
-                            <p style="color: #c5e8ff;">Set up a professional AI development environment with all necessary tools and libraries.</p>
+                    </div>
+                </div>
+                
+                <!-- Week 8 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 8 – Model Evaluation</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 23: Evaluation Metrics</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Accuracy, Precision, Recall, F1</li>
+                                    <li>Confusion matrix</li>
+                                    <li>ROC-AUC</li>
+                                    <li>RMSE, MAE, R²</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Project:</strong>
+                            <p>📌 Fake news detection using ML</p>
+                            <p>📌 Complete ML pipeline with evaluation</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Month 3 -->
+        <section class="month-section fade-in">
+            <div class="month-header">
+                <h3 class="month-title">📅 MONTH 3: Deep Learning + NLP</h3>
+            </div>
             
-            <!-- Module 2 Content -->
-            <div class="module-content" id="module2">
-                <div class="cyber-hero">
-                    <div class="hero-badge-cyber">🧠 MODULE 2 - MACHINE LEARNING</div>
-                    <h1 class="hero-title-cyber">Machine Learning Foundations</h1>
-                    <p class="hero-subtitle">Master supervised and unsupervised learning algorithms, model evaluation, and build predictive models.</p>
-                </div>
-                
-                <div class="module-header">
-                    <h2>Month 2: Machine Learning Mastery</h2>
-                    <p style="color: #c5e8ff; font-size: 1.2rem; margin-bottom: 20px;">Learn to build, train, and evaluate machine learning models for real-world applications.</p>
-                    <div class="module-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>4 Weeks</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-book"></i>
-                            <span>20 Lessons</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-project-diagram"></i>
-                            <span>5 Projects</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Intermediate Level</span>
+            <div class="weeks-container">
+                <!-- Week 9 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 9 – Neural Networks</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 24: Neural Network Basics</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Perceptron</li>
+                                    <li>Backpropagation</li>
+                                    <li>Gradient descent</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 25: Optimizers & Activations</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>SGD, Adam optimizers</li>
+                                    <li>ReLU, Sigmoid, Softmax activations</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Hands-On:</strong>
+                            <p>✔ Build neural network from scratch</p>
+                            <p>✔ Implement backpropagation</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="syllabus-grid">
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 5: Data Preprocessing</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-database"></i>
-                                <span>Data Cleaning & Missing Values</span>
+                <!-- Week 10 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 10 – CNN & RNN</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 26: CNN (Convolutional Neural Networks)</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Convolution operations</li>
+                                    <li>Pooling layers</li>
+                                    <li>Image classification architectures</li>
+                                </ul>
                             </li>
-                            <li class="topic-item">
-                                <i class="fas fa-database"></i>
-                                <span>Feature Engineering & Selection</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-database"></i>
-                                <span>Label Encoding & One-Hot Encoding</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-database"></i>
-                                <span>Feature Scaling & Normalization</span>
+                            <li><strong>Step 27: RNN & LSTM</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Sequence modeling</li>
+                                    <li>Time series prediction</li>
+                                    <li>LSTM and GRU cells</li>
+                                </ul>
                             </li>
                         </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 6: Supervised Learning</h3>
-                            <span class="card-duration">7 Days</span>
+                        <div class="hands-on">
+                            <strong>Projects:</strong>
+                            <p>📌 Image classification with CNN</p>
+                            <p>📌 Stock price prediction with LSTM</p>
                         </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Linear & Logistic Regression</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Decision Trees & Random Forests</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-chart-line"></i>
-                                <span>SVM & Naive Bayes Algorithms</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-chart-line"></i>
-                                <span>K-Nearest Neighbors</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 7: Unsupervised Learning</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-sitemap"></i>
-                                <span>K-Means Clustering</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-sitemap"></i>
-                                <span>Hierarchical Clustering</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-sitemap"></i>
-                                <span>DBSCAN & Density-Based Clustering</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-sitemap"></i>
-                                <span>PCA for Dimensionality Reduction</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 8: Model Evaluation</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-chart-bar"></i>
-                                <span>Train-Test Split & Cross-Validation</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-chart-bar"></i>
-                                <span>Classification Metrics (Accuracy, Precision, Recall)</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-chart-bar"></i>
-                                <span>Regression Metrics (RMSE, MAE, R²)</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-chart-bar"></i>
-                                <span>Hyperparameter Tuning & Grid Search</span>
-                            </li>
-                        </ul>
                     </div>
                 </div>
                 
-                <div class="projects-section">
-                    <h2 style="color: var(--primary); margin-bottom: 30px; font-family: 'Orbitron', sans-serif;">
-                        <i class="fas fa-project-diagram"></i> Module Projects
-                    </h2>
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-money-bill-wave"></i>
-                            </div>
-                            <div class="project-info">
-                                <h3 style="color: var(--light); margin-bottom: 10px;">Salary Prediction System</h3>
-                                <p style="color: #c5e8ff;">Build a regression model to predict salaries based on experience, education, and location.</p>
-                                <div class="tech-tags">
-                                    <span class="tech-tag">Linear Regression</span>
-                                    <span class="tech-tag">Pandas</span>
-                                    <span class="tech-tag">Scikit-learn</span>
-                                </div>
-                            </div>
+                <!-- Week 11 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 11 – NLP Fundamentals</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 28: NLP Basics</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Tokenization</li>
+                                    <li>Stopwords removal</li>
+                                    <li>Lemmatization</li>
+                                    <li>Stemming</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 29: Text Representation</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Bag of Words</li>
+                                    <li>TF-IDF</li>
+                                    <li>Word2Vec</li>
+                                    <li>Sentence embeddings</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Hands-On:</strong>
+                            <p>✔ Text preprocessing pipeline</p>
+                            <p>✔ Word embeddings implementation</p>
                         </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-user-check"></i>
-                            </div>
-                            <div class="project-info">
-                                <h3 style="color: var(--light); margin-bottom: 10px;">Customer Churn Prediction</h3>
-                                <p style="color: #c5e8ff;">Create a classification model to predict which customers are likely to leave a service.</p>
-                                <div class="tech-tags">
-                                    <span class="tech-tag">Logistic Regression</span>
-                                    <span class="tech-tag">Random Forest</span>
-                                    <span class="tech-tag">Confusion Matrix</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="project-info">
-                                <h3 style="color: var(--light); margin-bottom: 10px;">Customer Segmentation</h3>
-                                <p style="color: #c5e8ff;">Use clustering algorithms to segment customers for targeted marketing campaigns.</p>
-                                <div class="tech-tags">
-                                    <span class="tech-tag">K-Means</span>
-                                    <span class="tech-tag">PCA</span>
-                                    <span class="tech-tag">Visualization</span>
-                                </div>
-                            </div>
+                    </div>
+                </div>
+                
+                <!-- Week 12 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 12 – Transformers & Hugging Face</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 30: Transformers</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Attention mechanism</li>
+                                    <li>Encoder-Decoder architecture</li>
+                                    <li>BERT, GPT, T5 models</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step 31: Hugging Face</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Pipelines for NLP tasks</li>
+                                    <li>Tokenizers</li>
+                                    <li>Pretrained models usage</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Mini Project:</strong>
+                            <p>📌 Sentiment analysis with BERT</p>
+                            <p>📌 Text generation with GPT models</p>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Module 3 Content -->
-            <div class="module-content" id="module3">
-                <div class="cyber-hero">
-                    <div class="hero-badge-cyber">🤖 MODULE 3 - DEEP LEARNING & NLP</div>
-                    <h1 class="hero-title-cyber">Neural Networks & Natural Language Processing</h1>
-                    <p class="hero-subtitle">Master deep learning architectures and NLP techniques for advanced AI applications.</p>
-                </div>
-                
-                <div class="module-header">
-                    <h2>Month 3: Deep Learning & NLP</h2>
-                    <p style="color: #c5e8ff; font-size: 1.2rem; margin-bottom: 20px;">Build neural networks, understand NLP fundamentals, and work with transformer architectures.</p>
-                    <div class="module-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>4 Weeks</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-book"></i>
-                            <span>24 Lessons</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-project-diagram"></i>
-                            <span>6 Projects</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Advanced Level</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="syllabus-grid">
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 9: Neural Networks</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-network-wired"></i>
-                                <span>Perceptrons & Activation Functions</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-network-wired"></i>
-                                <span>Backpropagation & Gradient Descent</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-network-wired"></i>
-                                <span>Optimizers: SGD, Adam, RMSprop</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-network-wired"></i>
-                                <span>Building Neural Networks with Keras</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 10: CNN & RNN</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-eye"></i>
-                                <span>Convolutional Neural Networks (CNN)</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-eye"></i>
-                                <span>CNN Architectures for Image Recognition</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-wave-square"></i>
-                                <span>Recurrent Neural Networks (RNN)</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-wave-square"></i>
-                                <span>LSTM & GRU Networks</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 11: NLP Fundamentals</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-language"></i>
-                                <span>Text Preprocessing & Tokenization</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-language"></i>
-                                <span>Bag of Words & TF-IDF</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-language"></i>
-                                <span>Word Embeddings: Word2Vec, GloVe</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-language"></i>
-                                <span>Named Entity Recognition (NER)</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 12: Transformers</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-exchange-alt"></i>
-                                <span>Attention Mechanism & Self-Attention</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-exchange-alt"></i>
-                                <span>Transformer Architecture</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-exchange-alt"></i>
-                                <span>BERT, GPT, T5 Models</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-exchange-alt"></i>
-                                <span>Hugging Face Transformers Library</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        </section>
+
+        <!-- Month 4 -->
+        <section class="month-section fade-in">
+            <div class="month-header">
+                <h3 class="month-title">📅 MONTH 4: LLMs & Prompt Engineering</h3>
             </div>
             
-            <!-- Module 4 Content -->
-            <div class="module-content" id="module4">
-                <div class="cyber-hero">
-                    <div class="hero-badge-cyber">💬 MODULE 4 - LLMS & PROMPT ENGINEERING</div>
-                    <h1 class="hero-title-cyber">Large Language Models & Advanced Prompting</h1>
-                    <p class="hero-subtitle">Master GPT architectures, fine-tuning techniques, and advanced prompt engineering.</p>
-                </div>
-                
-                <div class="module-header">
-                    <h2>Month 4: LLMs & Prompt Engineering</h2>
-                    <p style="color: #c5e8ff; font-size: 1.2rem; margin-bottom: 20px;">Work with state-of-the-art LLMs and master the art of prompt engineering for optimal AI interactions.</p>
-                    <div class="module-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>4 Weeks</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-book"></i>
-                            <span>20 Lessons</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-project-diagram"></i>
-                            <span>5 Projects</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Expert Level</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="syllabus-grid">
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 13: LLM Fundamentals</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-brain"></i>
-                                <span>GPT Architecture & Variants</span>
+            <div class="weeks-container">
+                <!-- Week 13-14 -->
+                <div class="week-card" style="grid-column: 1 / -1;">
+                    <h4 class="week-title">Week 13-14 – Large Language Models (2 Weeks)</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 32: LLM Fundamentals</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>GPT architecture (GPT-3, GPT-4)</li>
+                                    <li>LLaMA, Falcon models</li>
+                                    <li>Tokenization techniques (BPE, WordPiece)</li>
+                                    <li>Transformer internals for LLMs</li>
+                                </ul>
                             </li>
-                            <li class="topic-item">
-                                <i class="fas fa-brain"></i>
-                                <span>LLaMA, Falcon, Claude Models</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-brain"></i>
-                                <span>Tokenization & Context Windows</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-brain"></i>
-                                <span>LLM Training & Fine-tuning</span>
+                            <li><strong>Step 33: Fine-Tuning</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Hugging Face datasets</li>
+                                    <li>Trainer API for fine-tuning</li>
+                                    <li>Supervised fine-tuning</li>
+                                    <li>Parameter-efficient fine-tuning (LoRA, QLoRA)</li>
+                                </ul>
                             </li>
                         </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 14: Prompt Engineering</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-keyboard"></i>
-                                <span>Zero-Shot & Few-Shot Prompting</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-keyboard"></i>
-                                <span>Chain-of-Thought Prompting</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-keyboard"></i>
-                                <span>Role-Based & Instruction Prompts</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-keyboard"></i>
-                                <span>Prompt Optimization Techniques</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 15: LLM Fine-tuning</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-cogs"></i>
-                                <span>Supervised Fine-tuning (SFT)</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-cogs"></i>
-                                <span>Parameter-Efficient Fine-tuning (PEFT)</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-cogs"></i>
-                                <span>LoRA & QLoRA Techniques</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-cogs"></i>
-                                <span>Fine-tuning on Custom Datasets</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 16: LLM Applications</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-robot"></i>
-                                <span>Chatbots & Conversational AI</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-robot"></i>
-                                <span>Code Generation & Completion</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-robot"></i>
-                                <span>Text Summarization & Translation</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-robot"></i>
-                                <span>Question Answering Systems</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Module 5 Content -->
-            <div class="module-content" id="module5">
-                <div class="cyber-hero">
-                    <div class="hero-badge-cyber">🔗 MODULE 5 - LANGCHAIN & RAG</div>
-                    <h1 class="hero-title-cyber">LangChain Framework & RAG Systems</h1>
-                    <p class="hero-subtitle">Build sophisticated AI applications with LangChain and implement Retrieval-Augmented Generation systems.</p>
-                </div>
-                
-                <div class="module-header">
-                    <h2>Month 5: LangChain & RAG Implementation</h2>
-                    <p style="color: #c5e8ff; font-size: 1.2rem; margin-bottom: 20px;">Master the LangChain framework and build RAG systems for knowledge-intensive applications.</p>
-                    <div class="module-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>4 Weeks</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-book"></i>
-                            <span>22 Lessons</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-project-diagram"></i>
-                            <span>6 Projects</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Expert Level</span>
+                        <div class="hands-on">
+                            <strong>Projects:</strong>
+                            <p>📌 Fine-tune a LLM on custom dataset</p>
+                            <p>📌 Domain-specific LLM training</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="syllabus-grid">
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 17: LangChain Basics</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-link"></i>
-                                <span>LangChain Components & Architecture</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-link"></i>
-                                <span>Models, Prompts, Output Parsers</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-link"></i>
-                                <span>Chains: Sequential, Transformation</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-link"></i>
-                                <span>Memory & Conversation Management</span>
+                <!-- Week 15 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 15 – Prompt Engineering</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 34: Prompting Techniques</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Zero-shot prompting</li>
+                                    <li>Few-shot prompting</li>
+                                    <li>Chain-of-Thought (CoT)</li>
+                                    <li>Role-based prompts</li>
+                                    <li>Tree of Thoughts (ToT)</li>
+                                    <li>Self-Consistency</li>
+                                </ul>
                             </li>
                         </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 18: RAG Pipeline</h3>
-                            <span class="card-duration">7 Days</span>
+                        <div class="hands-on">
+                            <strong>Projects:</strong>
+                            <p>📌 Advanced QA system with CoT</p>
+                            <p>📌 Text summarizer with role-based prompts</p>
                         </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-search"></i>
-                                <span>Document Loaders & Text Splitters</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-search"></i>
-                                <span>Embeddings & Vector Stores</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-search"></i>
-                                <span>Retrievers & Similarity Search</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-search"></i>
-                                <span>RAG Pipeline Implementation</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 19: Vector Databases</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-database"></i>
-                                <span>FAISS & Chroma Setup</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-database"></i>
-                                <span>Pinecone & Weaviate Integration</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-database"></i>
-                                <span>Vector Database Operations</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-database"></i>
-                                <span>Metadata Filtering & Hybrid Search</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 20: Advanced RAG</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-cogs"></i>
-                                <span>Multi-Hop RAG & Reasoning</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-cogs"></i>
-                                <span>RAG Evaluation & Optimization</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-cogs"></i>
-                                <span>Hybrid Search Techniques</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-cogs"></i>
-                                <span>RAG for Enterprise Applications</span>
-                            </li>
-                        </ul>
                     </div>
                 </div>
                 
-                <div class="projects-section">
-                    <h2 style="color: var(--primary); margin-bottom: 30px; font-family: 'Orbitron', sans-serif;">
-                        <i class="fas fa-project-diagram"></i> Module Projects
-                    </h2>
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-file-pdf"></i>
-                            </div>
-                            <div class="project-info">
-                                <h3 style="color: var(--light); margin-bottom: 10px;">PDF Chatbot with RAG</h3>
-                                <p style="color: #c5e8ff;">Build an intelligent chatbot that can answer questions from uploaded PDF documents.</p>
-                                <div class="tech-tags">
-                                    <span class="tech-tag">LangChain</span>
-                                    <span class="tech-tag">FAISS</span>
-                                    <span class="tech-tag">GPT-4</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="project-info">
-                                <h3 style="color: var(--light); margin-bottom: 10px;">Course Assistant AI</h3>
-                                <p style="color: #c5e8ff;">Create an AI assistant that helps students by answering questions about course materials.</p>
-                                <div class="tech-tags">
-                                    <span class="tech-tag">RAG</span>
-                                    <span class="tech-tag">ChromaDB</span>
-                                    <span class="tech-tag">Streamlit</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-newspaper"></i>
-                            </div>
-                            <div class="project-info">
-                                <h3 style="color: var(--light); margin-bottom: 10px;">News Summarizer</h3>
-                                <p style="color: #c5e8ff;">Build a system that fetches, processes, and summarizes news articles using RAG.</p>
-                                <div class="tech-tags">
-                                    <span class="tech-tag">Web Scraping</span>
-                                    <span class="tech-tag">Summarization</span>
-                                    <span class="tech-tag">LangChain</span>
-                                </div>
-                            </div>
+                <!-- Week 16 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 16 – LLM Applications & Integration</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Advanced LLM Applications</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>LLM agents for decision making</li>
+                                    <li>Multi-turn conversations</li>
+                                    <li>LLM for code generation</li>
+                                    <li>API integration with LLMs</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Project:</strong>
+                            <p>📌 Code generation assistant</p>
+                            <p>📌 Multi-purpose AI assistant</p>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Module 6 Content -->
-            <div class="module-content" id="module6">
-                <div class="cyber-hero">
-                    <div class="hero-badge-cyber">⚙️ MODULE 6 - N8N AUTOMATION</div>
-                    <h1 class="hero-title-cyber">Workflow Automation with n8n</h1>
-                    <p class="hero-subtitle">Master n8n workflow automation and integrate AI models into automated business processes.</p>
-                </div>
-                
-                <div class="module-header">
-                    <h2>Month 6: n8n & AI Automation</h2>
-                    <p style="color: #c5e8ff; font-size: 1.2rem; margin-bottom: 20px;">Learn to create sophisticated workflows with n8n and integrate AI capabilities into automation systems.</p>
-                    <div class="module-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>4 Weeks</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-book"></i>
-                            <span>18 Lessons</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-project-diagram"></i>
-                            <span>5 Projects</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Advanced Level</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="syllabus-grid">
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 21: n8n Fundamentals</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-cogs"></i>
-                                <span>n8n Installation & Setup</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-cogs"></i>
-                                <span>Nodes, Triggers, & Workflows</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-cogs"></i>
-                                <span>Workflow Design & Best Practices</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-cogs"></i>
-                                <span>Error Handling & Debugging</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 22: API Integration</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-plug"></i>
-                                <span>REST API Integration</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-plug"></i>
-                                <span>Webhooks & Event Triggers</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-plug"></i>
-                                <span>Authentication & Security</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-plug"></i>
-                                <span>Data Transformation & Mapping</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 23: AI + n8n Integration</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-robot"></i>
-                                <span>Integrating OpenAI & Anthropic APIs</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-robot"></i>
-                                <span>Custom AI Model Integration</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-robot"></i>
-                                <span>LangChain + n8n Workflows</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-robot"></i>
-                                <span>AI-Powered Decision Making</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 24: Advanced Automation</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-project-diagram"></i>
-                                <span>Complex Workflow Orchestration</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-project-diagram"></i>
-                                <span>Multi-Step AI Automation</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-project-diagram"></i>
-                                <span>Conditional Logic & Branching</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-project-diagram"></i>
-                                <span>Workflow Optimization & Scaling</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        </section>
+
+        <!-- Month 5 -->
+        <section class="month-section fade-in">
+            <div class="month-header">
+                <h3 class="month-title">📅 MONTH 5: LangChain + RAG</h3>
             </div>
             
-            <!-- Module 7 Content -->
-            <div class="module-content" id="module7">
-                <div class="cyber-hero">
-                    <div class="hero-badge-cyber">🚀 MODULE 7 - CAPSTONE & DEPLOYMENT</div>
-                    <h1 class="hero-title-cyber">Production Deployment & Capstone Projects</h1>
-                    <p class="hero-subtitle">Deploy AI applications to production and build comprehensive capstone projects.</p>
-                </div>
-                
-                <div class="module-header">
-                    <h2>Month 7: Deployment & Final Projects</h2>
-                    <p style="color: #c5e8ff; font-size: 1.2rem; margin-bottom: 20px;">Learn to deploy AI applications and build portfolio-worthy capstone projects.</p>
-                    <div class="module-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>4 Weeks</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-book"></i>
-                            <span>16 Lessons</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-project-diagram"></i>
-                            <span>3 Capstone Projects</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Expert Level</span>
+            <div class="weeks-container">
+                <!-- Week 17 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 17 – LangChain Basics</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 35: Core Concepts</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>LLM wrappers and integrations</li>
+                                    <li>Prompt templates and chaining</li>
+                                    <li>Memory for conversation history</li>
+                                    <li>Agents and tools</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Hands-On:</strong>
+                            <p>✔ Build chatbot with memory</p>
+                            <p>✔ Create custom tools for LLMs</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="syllabus-grid">
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 25: Web Frameworks</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-globe"></i>
-                                <span>Streamlit for Rapid Prototyping</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-globe"></i>
-                                <span>FastAPI for Production APIs</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-globe"></i>
-                                <span>Gradio for Interactive Demos</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-globe"></i>
-                                <span>Frontend Integration with React</span>
+                <!-- Week 18 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 18 – RAG Pipeline Fundamentals</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 36: RAG Pipeline</strong>
+                                <ol style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Document loading and parsing</li>
+                                    <li>Text chunking strategies</li>
+                                    <li>Embeddings and vector representations</li>
+                                    <li>Vector database setup</li>
+                                    <li>Retriever implementation</li>
+                                    <li>LLM response generation</li>
+                                </ol>
                             </li>
                         </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 26: Containerization</h3>
-                            <span class="card-duration">7 Days</span>
+                        <div class="hands-on">
+                            <strong>Hands-On:</strong>
+                            <p>✔ Set up vector database</p>
+                            <p>✔ Implement basic RAG pipeline</p>
                         </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-box"></i>
-                                <span>Docker Fundamentals</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-box"></i>
-                                <span>Dockerizing AI Applications</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-box"></i>
-                                <span>Docker Compose for Multi-Service Apps</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-box"></i>
-                                <span>Best Practices for AI Containers</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 27: Cloud Deployment</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-cloud"></i>
-                                <span>AWS SageMaker & EC2</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-cloud"></i>
-                                <span>Google Cloud AI Platform</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-cloud"></i>
-                                <span>Azure Machine Learning</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-cloud"></i>
-                                <span>Serverless AI with AWS Lambda</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="syllabus-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Week 28: CI/CD & Monitoring</h3>
-                            <span class="card-duration">7 Days</span>
-                        </div>
-                        <ul class="topics-list">
-                            <li class="topic-item">
-                                <i class="fas fa-sync-alt"></i>
-                                <span>CI/CD Pipelines for AI</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-sync-alt"></i>
-                                <span>GitHub Actions & GitLab CI</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Model Monitoring & Logging</span>
-                            </li>
-                            <li class="topic-item">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Performance Optimization</span>
-                            </li>
-                        </ul>
                     </div>
                 </div>
                 
-                <div class="career-section">
-                    <h2 style="color: var(--primary); margin-bottom: 30px; font-family: 'Orbitron', sans-serif;">
-                        <i class="fas fa-briefcase"></i> Career Paths After Completion
-                    </h2>
-                    <div class="career-grid">
-                        <div class="career-card">
-                            <div style="font-size: 40px; color: var(--primary); margin-bottom: 20px;">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <h3>AI Engineer</h3>
-                            <p style="color: #c5e8ff; margin: 15px 0;">Design, build, and deploy AI models and systems for production applications.</p>
-                            <div class="salary-badge">$120K - $200K</div>
+                <!-- Week 19 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 19 – Advanced RAG Techniques</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Vector Databases:</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>FAISS for local vector search</li>
+                                    <li>ChromaDB for persistent storage</li>
+                                    <li>Pinecone for cloud vector DB</li>
+                                    <li>Weaviate for graph-based retrieval</li>
+                                </ul>
+                            </li>
+                            <li><strong>Advanced RAG:</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Hybrid search (vector + keyword)</li>
+                                    <li>Query expansion and rewriting</li>
+                                    <li>Multi-hop retrieval</li>
+                                    <li>Reranking strategies</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Project:</strong>
+                            <p>📌 Advanced PDF chatbot with hybrid search</p>
                         </div>
-                        
-                        <div class="career-card">
-                            <div style="font-size: 40px; color: var(--primary); margin-bottom: 20px;">
-                                <i class="fas fa-cogs"></i>
-                            </div>
-                            <h3>ML Engineer</h3>
-                            <p style="color: #c5e8ff; margin: 15px 0;">Develop machine learning pipelines and infrastructure for scalable AI solutions.</p>
-                            <div class="salary-badge">$110K - $180K</div>
-                        </div>
-                        
-                        <div class="career-card">
-                            <div style="font-size: 40px; color: var(--primary); margin-bottom: 20px;">
-                                <i class="fas fa-project-diagram"></i>
-                            </div>
-                            <h3>AI Automation Specialist</h3>
-                            <p style="color: #c5e8ff; margin: 15px 0;">Implement AI-driven automation solutions for business processes and workflows.</p>
-                            <div class="salary-badge">$100K - $160K</div>
-                        </div>
-                        
-                        <div class="career-card">
-                            <div style="font-size: 40px; color: var(--primary); margin-bottom: 20px;">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3>AI Product Manager</h3>
-                            <p style="color: #c5e8ff; margin: 15px 0;">Lead AI product development from conception to deployment and iteration.</p>
-                            <div class="salary-badge">$130K - $220K</div>
+                    </div>
+                </div>
+                
+                <!-- Week 20 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 20 – Production RAG Systems</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Production Considerations:</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Caching strategies</li>
+                                    <li>Performance optimization</li>
+                                    <li>Monitoring and logging</li>
+                                    <li>Error handling</li>
+                                </ul>
+                            </li>
+                            <li><strong>Real-world Applications:</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Enterprise knowledge base</li>
+                                    <li>Customer support automation</li>
+                                    <li>Research assistant</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Capstone Project:</strong>
+                            <p>📌 Production-ready RAG system</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Month 6 -->
+        <section class="month-section fade-in">
+            <div class="month-header">
+                <h3 class="month-title">📅 MONTH 6: LangGraph + n8n (AGENTIC AI)</h3>
+            </div>
             
-            <!-- Final CTA -->
-            <div class="cta-section" id="cta">
-                <h2 class="cta-title">Ready to Master AI Automation?</h2>
-                <p style="color: #c5e8ff; font-size: 1.3rem; max-width: 800px; margin: 0 auto 40px;">
-                    Join thousands of students who have transformed their careers with our comprehensive AI Agentic course.
-                </p>
-                <div class="enrollment-stats" style="display: flex; justify-content: center; gap: 40px; margin: 40px 0; flex-wrap: wrap;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary);">5,000+</div>
-                        <div style="color: #c5e8ff;">Students Enrolled</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.5rem; font-weight: bold; color: var(--accent);">94%</div>
-                        <div style="color: #c5e8ff;">Completion Rate</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.5rem; font-weight: bold; color: var(--success);">300+</div>
-                        <div style="color: #c5e8ff;">Projects Built</div>
+            <div class="weeks-container">
+                <!-- Week 21 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 21 – LangGraph for Multi-Agent Systems</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 37: LangGraph Fundamentals</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>State graphs and workflows</li>
+                                    <li>Decision nodes and conditional routing</li>
+                                    <li>Multi-step reasoning agents</li>
+                                    <li>Agent orchestration</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Hands-On:</strong>
+                            <p>✔ Build multi-agent research system</p>
+                            <p>✔ Create decision-making workflow</p>
+                        </div>
                     </div>
                 </div>
-                <a href="#" class="cyber-button">
-                    <i class="fas fa-bolt" style="margin-right: 15px;"></i> Enroll Now - Limited Spots Available
-                </a>
-                <p style="color: #a0c8ff; margin-top: 30px; font-size: 0.9rem;">
-                    Next cohort starts in <span style="color: var(--primary); font-weight: bold;">7 days</span>
-                </p>
+                
+                <!-- Week 22 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 22 – n8n Automation Basics</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 38: n8n Fundamentals</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>n8n installation and setup</li>
+                                    <li>Node-based workflow design</li>
+                                    <li>Triggers and webhooks</li>
+                                    <li>Basic automation workflows</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="n8n-highlight">
+                            <strong>Hands-On:</strong>
+                            <p>✔ Install and configure n8n</p>
+                            <p>✔ Create first automation workflow</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Week 23 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 23 – Advanced n8n Automation</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 39: API Automation</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>HTTP requests and API integration</li>
+                                    <li>JSON parsing and data transformation</li>
+                                    <li>Error handling and retries</li>
+                                    <li>Webhook implementations</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="n8n-highlight">
+                            <strong>Hands-On:</strong>
+                            <p>✔ API integration workflows</p>
+                            <p>✔ Data transformation pipelines</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Week 24 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 24 – AI + n8n Integration</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 40: AI Automation</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Call LLMs from n8n workflows</li>
+                                    <li>Trigger LangChain agents via n8n</li>
+                                    <li>Tool execution in automated workflows</li>
+                                    <li>Event-driven AI systems</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="n8n-highlight">
+                            <strong>Projects:</strong>
+                            <p>📌 AI customer support automation</p>
+                            <p>📌 Lead qualification bot with n8n</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Month 7 -->
+        <section class="month-section fade-in">
+            <div class="month-header">
+                <h3 class="month-title">📅 MONTH 7: CAPSTONE + DEPLOYMENT</h3>
+            </div>
+            
+            <div class="weeks-container">
+                <!-- Week 25-26 -->
+                <div class="week-card" style="grid-column: 1 / -1;">
+                    <h4 class="week-title">Week 25-26 – Capstone Project Development (2 Weeks)</h4>
+                    <div class="week-content">
+                        <p><strong>Choose one major project or combine multiple:</strong></p>
+                        <ul>
+                            <li><strong>1. AI Knowledge Assistant</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Multi-document RAG system</li>
+                                    <li>Web search integration</li>
+                                    <li>Conversational interface</li>
+                                    <li>n8n automation for data updates</li>
+                                </ul>
+                            </li>
+                            <li><strong>2. Multi-Agent Research System</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Research planner agent</li>
+                                    <li>Web scraper agent</li>
+                                    <li>Summarizer agent</li>
+                                    <li>Report generator agent</li>
+                                </ul>
+                            </li>
+                            <li><strong>3. Resume Screener AI</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>PDF parsing and extraction</li>
+                                    <li>Candidate scoring system</li>
+                                    <li>Automated feedback generation</li>
+                                    <li>n8n workflow for application processing</li>
+                                </ul>
+                            </li>
+                            <li><strong>4. Voice AI Agent</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Speech-to-text integration</li>
+                                    <li>AI conversation engine</li>
+                                    <li>Text-to-speech response</li>
+                                    <li>Automated call handling</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="ai-highlight">
+                            <strong>Requirements:</strong>
+                            <p>✅ Must use LangGraph for multi-agent orchestration</p>
+                            <p>✅ Must include n8n automation workflows</p>
+                            <p>✅ Must have RAG capabilities</p>
+                            <p>✅ Must include deployment configuration</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Week 27 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 27 – Deployment Fundamentals</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Step 41: Deployment Strategies</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Streamlit / Gradio for quick prototypes</li>
+                                    <li>FastAPI for production APIs</li>
+                                    <li>Docker containerization</li>
+                                    <li>Environment configuration</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Hands-On:</strong>
+                            <p>✔ Dockerize AI application</p>
+                            <p>✔ Deploy FastAPI service</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Week 28 -->
+                <div class="week-card">
+                    <h4 class="week-title">Week 28 – Cloud Deployment & Final Review</h4>
+                    <div class="week-content">
+                        <ul>
+                            <li><strong>Cloud Deployment</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>AWS/GCP/Azure deployment options</li>
+                                    <li>Serverless deployment with Vercel</li>
+                                    <li>Kubernetes for scaling</li>
+                                    <li>CI/CD pipelines for AI systems</li>
+                                </ul>
+                            </li>
+                            <li><strong>Final Review</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Code optimization</li>
+                                    <li>Security best practices</li>
+                                    <li>Monitoring and maintenance</li>
+                                    <li>Cost optimization strategies</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hands-on">
+                            <strong>Final Task:</strong>
+                            <p>📌 Deploy capstone project to cloud</p>
+                            <p>📌 Create deployment documentation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Outcome -->
+        <section class="fade-in">
+            <h2 class="colorful-text">🚀 FINAL OUTCOME</h2>
+            <div class="capstone-grid">
+                <div class="capstone-item">✅ Build complete AI Agents from scratch</div>
+                <div class="capstone-item">✅ Automate complex workflows with n8n</div>
+                <div class="capstone-item">✅ Design and implement RAG systems</div>
+                <div class="capstone-item">✅ Deploy production AI products</div>
+                <div class="capstone-item">✅ Create multi-agent AI systems</div>
+                <div class="capstone-item">✅ Implement enterprise automation solutions</div>
+            </div>
+            <div style="background: var(--gradient2); padding: 25px; border-radius: 12px; margin-top: 30px; color: white;">
+                <h3 style="color: white; margin-bottom: 15px;">Career Opportunities After Course:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px;">
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px;">AI Engineer</div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px;">Agentic AI Developer</div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px;">Automation Specialist</div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px;">MLOps Engineer</div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px;">AI Solutions Architect</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certification -->
+        <section class="fade-in">
+            <h2 class="colorful-text">🏆 Dual Certification</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 30px;">
+                <div class="cert-badge">Certified Agentic AI Developer</div>
+                <div class="n8n-badge">Certified n8n Automation Expert</div>
+            </div>
+            <p>with comprehensive expertise in:</p>
+            <div class="cert-grid">
+                <div class="cert-item">Python & Machine Learning</div>
+                <div class="cert-item">Deep Learning & NLP</div>
+                <div class="cert-item">LangChain & LangGraph</div>
+                <div class="cert-item">n8n Automation</div>
+                <div class="cert-item">RAG Systems</div>
+                <div class="cert-item">Production Deployment</div>
+                <div class="cert-item">Multi-Agent Systems</div>
+                <div class="cert-item">Enterprise AI Solutions</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <img src="Madrid logo Final V1.png" alt="Madrid Software Logo" class="footer-logo">
+            <p>© 2025 Madrid Software - AI Agentic Development with n8n Automation Course. All rights reserved.</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Master AI Agents and Automation for the Future of Work</p>
+            <div style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">
+                <p>28 Weeks • 7 Months • 500+ Hours of Learning • 50+ Projects • Career Support</p>
             </div>
         </div>
-    </div>
+    </footer>
 
     <script>
-        // Create particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 25;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random properties
-                const size = Math.random() * 5 + 1;
-                const posX = Math.random() * 100;
-                const duration = Math.random() * 20 + 10;
-                const delay = Math.random() * 10;
-                const colorType = Math.floor(Math.random() * 3);
-                let color;
-                
-                if (colorType === 0) color = 'rgba(0, 243, 255, 0.5)';
-                else if (colorType === 1) color = 'rgba(255, 0, 255, 0.5)';
-                else color = 'rgba(0, 255, 170, 0.5)';
-                
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${posX}%`;
-                particle.style.background = color;
-                particle.style.animationDuration = `${duration}s`;
-                particle.style.animationDelay = `${delay}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
-        // Course Modules Data
-        const modules = [
-            {
-                id: 'module1',
-                title: 'Python & AI Fundamentals',
-                duration: 'Month 1 - 4 Weeks',
-                icon: 'fas fa-code',
-                order: 1
-            },
-            {
-                id: 'module2',
-                title: 'Machine Learning',
-                duration: 'Month 2 - 4 Weeks',
-                icon: 'fas fa-brain',
-                order: 2
-            },
-            {
-                id: 'module3',
-                title: 'Deep Learning & NLP',
-                duration: 'Month 3 - 4 Weeks',
-                icon: 'fas fa-robot',
-                order: 3
-            },
-            {
-                id: 'module4',
-                title: 'LLMs & Prompt Engineering',
-                duration: 'Month 4 - 4 Weeks',
-                icon: 'fas fa-language',
-                order: 4
-            },
-            {
-                id: 'module5',
-                title: 'LangChain & RAG',
-                duration: 'Month 5 - 4 Weeks',
-                icon: 'fas fa-link',
-                order: 5
-            },
-            {
-                id: 'module6',
-                title: 'n8n Automation',
-                duration: 'Month 6 - 4 Weeks',
-                icon: 'fas fa-cogs',
-                order: 6
-            },
-            {
-                id: 'module7',
-                title: 'Deployment & Capstone',
-                duration: 'Month 7 - 4 Weeks',
-                icon: 'fas fa-rocket',
-                order: 7
-            }
-        ];
-        
-        // Initialize sidebar
-        function initializeSidebar() {
-            const moduleList = document.getElementById('moduleList');
-            const progressItems = document.getElementById('progressItems');
-            
-            modules.forEach(module => {
-                // Create sidebar item
-                const li = document.createElement('li');
-                li.className = 'module-item';
-                li.setAttribute('data-module', module.id);
-                li.innerHTML = `
-                    <div class="module-title">
-                        <i class="${module.icon}"></i> ${module.title}
-                    </div>
-                    <div class="module-duration">${module.duration}</div>
-                `;
-                moduleList.appendChild(li);
-                
-                // Create progress item
-                const progressItem = document.createElement('div');
-                progressItem.className = 'progress-item';
-                progressItem.setAttribute('data-target', module.id);
-                progressItem.textContent = `Module ${module.order}: ${module.title.split(' - ')[0]}`;
-                progressItems.appendChild(progressItem);
-                
-                // Add click event
-                li.addEventListener('click', () => {
-                    switchModule(module.id);
-                });
-                
-                progressItem.addEventListener('click', () => {
-                    switchModule(module.id);
-                });
-            });
-            
-            // Set first module as active
-            document.querySelector('.module-item').classList.add('active');
-            document.querySelector('.progress-item').classList.add('active');
-            document.querySelector('.progress-item').classList.add('completed');
-        }
-        
-        // Switch module function
-        function switchModule(moduleId) {
-            // Update sidebar
-            document.querySelectorAll('.module-item').forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('data-module') === moduleId) {
-                    item.classList.add('active');
-                }
-            });
-            
-            // Update module content
-            document.querySelectorAll('.module-content').forEach(content => {
-                content.classList.remove('active');
-                if (content.id === moduleId) {
-                    content.classList.add('active');
-                }
-            });
-            
-            // Update progress tracker
-            document.querySelectorAll('.progress-item').forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('data-target') === moduleId) {
-                    item.classList.add('active');
-                    // Mark as completed when active
-                    item.classList.add('completed');
-                }
-            });
-            
-            // Update progress percentage
-            updateProgressTracker();
-            
-            // Scroll to top of content
-            document.querySelector('.content-wrapper').scrollTop = 0;
-            
-            // Close mobile menu if open
-            const navLinks = document.getElementById('navLinks');
-            const mobileBtnIcon = document.querySelector('#mobileMenuBtn i');
-            
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                mobileBtnIcon.classList.remove('fa-times');
-                mobileBtnIcon.classList.add('fa-bars');
-            }
-        }
-        
-        // Update progress tracker
-        function updateProgressTracker() {
-            const completedItems = document.querySelectorAll('.progress-item.completed').length;
-            const totalItems = modules.length;
-            const percentage = Math.round((completedItems / totalItems) * 100);
-            
-            document.getElementById('progressFill').style.width = `${percentage}%`;
-            document.getElementById('progressPercent').textContent = `${percentage}%`;
-        }
-        
-        // Mobile menu toggle
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-            
-            // Change icon
-            const icon = this.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-        
-        // Smooth scrolling for navigation
-        document.querySelectorAll('.nav-cyber a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href').substring(1);
-                if (!targetId) return;
-                
-                if (targetId === 'syllabus' || targetId === 'overview') {
-                    // Scroll to top for syllabus/overview
-                    document.querySelector('.content-wrapper').scrollTop = 0;
-                } else if (targetId === 'projects') {
-                    // Find first module with projects and switch to it
-                    switchModule('module2');
-                } else if (targetId === 'career') {
-                    // Switch to module 7 which has career section
-                    switchModule('module7');
-                } else if (targetId === 'cta') {
-                    // Scroll to CTA section
-                    const ctaSection = document.getElementById('cta');
-                    ctaSection.scrollIntoView({ behavior: 'smooth' });
-                }
-                
-                // Close mobile menu
-                const navLinks = document.getElementById('navLinks');
-                const mobileBtnIcon = document.querySelector('#mobileMenuBtn i');
-                
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    mobileBtnIcon.classList.remove('fa-times');
-                    mobileBtnIcon.classList.add('fa-bars');
-                }
-            });
-        });
-        
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.style.padding = '15px 0';
-                header.style.boxShadow = '0 5px 30px rgba(0, 243, 255, 0.4)';
-            } else {
-                header.style.padding = '20px 0';
-                header.style.boxShadow = 'var(--neon-glow)';
-            }
-        });
-        
-        // Add hover effects to syllabus cards
-        document.addEventListener('mouseover', function(e) {
-            if (e.target.closest('.syllabus-card')) {
-                const card = e.target.closest('.syllabus-card');
-                card.style.transform = 'translateY(-10px)';
-                card.style.boxShadow = 'var(--neon-glow)';
-            }
-        });
-        
-        document.addEventListener('mouseout', function(e) {
-            if (e.target.closest('.syllabus-card')) {
-                const card = e.target.closest('.syllabus-card');
-                card.style.transform = 'translateY(0)';
-                card.style.boxShadow = 'none';
-            }
-        });
-        
-        // Initialize everything
+        // Scroll animation for fade-in elements
         document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            initializeSidebar();
-            updateProgressTracker();
+            const fadeElements = document.querySelectorAll('.fade-in');
             
-            // Set up module switching from progress items
-            document.querySelectorAll('.progress-item').forEach(item => {
-                item.addEventListener('click', function() {
-                    const moduleId = this.getAttribute('data-target');
-                    switchModule(moduleId);
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Initial check
+            fadeInOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+            
+            // Add hover effects with JavaScript for additional interactivity
+            const weekCards = document.querySelectorAll('.week-card');
+            weekCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
                 });
             });
             
-            // Handle sidebar scrolling on mobile
-            const sidebar = document.querySelector('.syllabus-sidebar');
-            if (window.innerWidth <= 768) {
-                sidebar.style.maxHeight = '300px';
-            }
-            
-            // Update sidebar height on window resize
-            window.addEventListener('resize', function() {
-                if (window.innerWidth <= 768) {
-                    sidebar.style.maxHeight = '300px';
-                } else {
-                    sidebar.style.maxHeight = 'none';
-                }
-            });
-        });
-        
-        // Add keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            // Escape closes mobile menu
-            if (e.key === 'Escape') {
-                const navLinks = document.getElementById('navLinks');
-                const mobileBtnIcon = document.querySelector('#mobileMenuBtn i');
+            // Colorful text animation
+            const colorfulTexts = document.querySelectorAll('.colorful-text');
+            colorfulTexts.forEach(text => {
+                text.addEventListener('mouseenter', function() {
+                    this.style.animation = 'shimmer 1.5s ease-in-out infinite';
+                });
                 
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    mobileBtnIcon.classList.remove('fa-times');
-                    mobileBtnIcon.classList.add('fa-bars');
-                }
-            }
+                text.addEventListener('mouseleave', function() {
+                    this.style.animation = 'shimmer 3s ease-in-out infinite';
+                });
+            });
             
-            // Arrow keys navigate modules
-            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-                const activeModuleItem = document.querySelector('.module-item.active');
-                if (activeModuleItem) {
-                    const moduleItems = Array.from(document.querySelectorAll('.module-item'));
-                    const currentIndex = moduleItems.indexOf(activeModuleItem);
-                    let nextIndex;
-                    
-                    if (e.key === 'ArrowRight') {
-                        nextIndex = (currentIndex + 1) % moduleItems.length;
-                    } else {
-                        nextIndex = (currentIndex - 1 + moduleItems.length) % moduleItems.length;
-                    }
-                    
-                    const nextModuleId = moduleItems[nextIndex].getAttribute('data-module');
-                    switchModule(nextModuleId);
-                }
-            }
+            // Add pulse animation to logo on hover
+            const logoImg = document.querySelector('.logo-img');
+            logoImg.addEventListener('mouseenter', function() {
+                this.style.animation = 'pulse 0.8s infinite';
+            });
+            
+            logoImg.addEventListener('mouseleave', function() {
+                this.style.animation = 'pulse 2s infinite';
+            });
         });
     </script>
 </body>
